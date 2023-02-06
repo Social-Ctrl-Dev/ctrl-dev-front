@@ -51,7 +51,7 @@ export class Posts extends Component {
                                     Post
                             </Button>
                     
-                        <Card.Footer>{item.user.name}</Card.Footer>
+                        <Card.Footer >{item.user.name}</Card.Footer>
                     </Card>
                 ))}
             </Row>
