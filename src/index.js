@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { FullPost } from './components/FullPost';
 import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import App from './App';
-import { Header } from './Header';
+import { Header } from './components/Header';
 const routing =(
   <BrowserRouter>  
      <React.StrictMode>
@@ -15,7 +15,6 @@ const routing =(
         <Route path="/post/:id" element={<FullPost/>} /> 
     </Routes>
    
-
   </React.StrictMode>
   </BrowserRouter>
 
