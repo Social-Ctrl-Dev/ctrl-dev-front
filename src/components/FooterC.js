@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
-
+import { Link } from 'react-router-dom';
 const FooterC = () => {
   return (
     <footer className="bg-light py-3">
@@ -13,10 +13,10 @@ const FooterC = () => {
             </p>
           </Col>
           <Col xs={12} md={4} className="text-center">
-            <h5 className="font-weight-bold">Contáctanos</h5>
+            
+          <h5 className="font-weight-bold">Contáctanos</h5>
             <p className="text-muted">
-              <br />
-             
+              <Link to="/contactUs">Ir a la página de contacto</Link>
             </p>
           </Col>
           <Col xs={12} md={4} className="text-center">

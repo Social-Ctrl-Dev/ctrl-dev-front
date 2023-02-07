@@ -10,15 +10,18 @@ import FooterC from './components/FooterC';
 import Register from './components/register';
 import NewPost from './components/newpost';
 import UserProfile from './components/userProfile';
+import ContactUs from './components/contactUs';
 const routing =(
   <BrowserRouter>  
      <React.StrictMode>
     <Header/>
-    <NewPost></NewPost>
+  
     <Routes>
         <Route  path="/" element={ <App /> } />
         <Route path="/post/:id" element={<FullPost/>} /> 
         <Route path="/:name" element={<UserProfile/>} /> 
+        <Route path="/contactus" element={<ContactUs/>} /> 
+        
 
     </Routes>
     <Register/>
