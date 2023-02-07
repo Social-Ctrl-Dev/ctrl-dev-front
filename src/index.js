@@ -7,14 +7,18 @@ import { Route, BrowserRouter, Routes } from 'react-router-dom';
 import App from './App';
 import { Header } from './components/Header';
 import FooterC from './components/FooterC';
+import Register from './components/register';
+import NewPost from './components/newpost';
 const routing =(
   <BrowserRouter>  
      <React.StrictMode>
     <Header/>
+    <NewPost></NewPost>
     <Routes>
         <Route  path="/" element={ <App /> } />
         <Route path="/post/:id" element={<FullPost/>} /> 
     </Routes>
+    <Register/>
    <FooterC/>
   </React.StrictMode>
   </BrowserRouter>
