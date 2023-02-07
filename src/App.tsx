@@ -6,13 +6,14 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 
 //Importar componentes de páginas principales
-import { Landing, Login, Account } from './pages';
+import { Landing, Login, Account, Mural } from './pages';
 
 //Importar componentes Secundarios
 import NavbarCtrl from './components/NavbarCtrl/NavbarCtrl';
 import FooterC from './components/Footer/FooterC';
 //Importar componentes de páginas de error
 import ErrorPage from './pages/ErrorPages/ErrorPage';
+import { FullPost } from './components/FullPost';
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,14 @@ const router = createBrowserRouter([
       {
         path: 'account',
         element: <Account />,
+      },
+      {
+        path: 'mural',
+        element: <Mural />,
+      },
+      {
+        path: '/post/:id',
+        element: <FullPost />,
       },
     ],
   },

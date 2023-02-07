@@ -13,7 +13,7 @@ const loginWithToken = async (access_token: string): Promise<string> => {
         },
       },
     );
-    return JSON.stringify(response.data);
+    return response.data.result;
   } catch (error) {
     return JSON.stringify(error);
   }
@@ -50,7 +50,7 @@ async function callRegisterUrl() {
 async function userLogout() {
   localStorage.removeItem('access_token');
   localStorage.removeItem('infoUsuario');
-  window.location.assign('/');
+  window.location.assign(process.env.REACT_APP_URL2 || 'https://ctrl-dev-front2.vercel.app/');
 }
 
 export const UserServices = {
