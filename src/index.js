@@ -9,6 +9,7 @@ import { Header } from './components/Header';
 import FooterC from './components/FooterC';
 import Register from './components/register';
 import NewPost from './components/newpost';
+import UserProfile from './components/userProfile';
 const routing =(
   <BrowserRouter>  
      <React.StrictMode>
@@ -17,6 +18,8 @@ const routing =(
     <Routes>
         <Route  path="/" element={ <App /> } />
         <Route path="/post/:id" element={<FullPost/>} /> 
+        <Route path="/:name" element={<UserProfile/>} /> 
+
     </Routes>
     <Register/>
    <FooterC/>
