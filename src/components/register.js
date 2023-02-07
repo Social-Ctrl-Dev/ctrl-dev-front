@@ -38,14 +38,7 @@ const Register = () => {
 
   return (
     <div>
-      {token ? (
-        <div>
-          <h2>Token: {token}</h2>
-          <h2>Información del usuario: {JSON.stringify(infoUsuario)}</h2>
-        </div>
-      ) : (
-        <h2>Por favor inicie sesión para obtener el token y la información del usuario</h2>
-      )}
+      <br></br>
     </div>
   );
 };
