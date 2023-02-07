@@ -10,7 +10,7 @@ export const FullPost = (props)=>{
 
 
     useEffect(() => {
-		axios.get(`http://localhost:8000/posts/${id}`).then((res) => {
+		axios.get(`https://ctrl-dev-back-test.up.railway.app/posts/${id}`).then((res) => {
 			setPostData({ post: res.data.result });
            
 		});
