@@ -14,6 +14,7 @@ export default function Landing() {
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(300 - Math.random() * 100);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [index, setIndex] = useState(1);
   const toRotate = ['Backend Developers', 'Front Developers', 'ti...'];
   const period = 1000;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navbar, Container, Nav } from 'react-bootstrap';
-import { Outlet, Link } from 'react-router-dom';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
+import queryString from 'query-string';
 
 //Import de estilos e imágenes
 import logo from '../../img/LogoCDEV2.png';
@@ -13,8 +14,37 @@ import { UserServices } from '../../services';
 const NavbarCtrl: React.FC = () => {
   const [activeLink, setActiveLink] = React.useState('home');
   const [scrolled, setScrolled] = React.useState(false);
+  const [access_token, setAccessToken] = React.useState<string | null>(null);
+  const [redirect, setRedirect] = React.useState(false);
+  const navigate = useNavigate();
 
-  //Función para detectar el scroll
+  //Función para loguear con el token y redireccionar a la cuenta
+  const loginWithToken = async (): Promise<void> => {
+    if (redirect) {
+      setRedirect(false);
+      const user_data = await UserServices.loginWithToken(access_token as string);
+      localStorage.setItem('infoUser', user_data);
+      navigate('/account');
+    }
+  };
+
+  //Hook para obtener el token de la url y guardarlo en el localstorage
+  React.useEffect(() => {
+    const values = queryString.parse(window.location.hash);
+    setAccessToken(values.access_token as string);
+    localStorage.setItem('access_token', values.access_token as string);
+
+    if (values.access_token) {
+      setRedirect(true);
+    }
+  }, []);
+
+  //Hook para loguear con el token y redireccionar a la cuenta (si se está registrando)
+  React.useEffect(() => {
+    loginWithToken();
+  }, [redirect]);
+
+  //Hook para detectar el scroll
   React.useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
