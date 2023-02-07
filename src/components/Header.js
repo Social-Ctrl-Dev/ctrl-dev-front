@@ -13,6 +13,8 @@ export const Header = ()=> {
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="#news">Login</Nav.Link>
           <Nav.Link href="#contact"></Nav.Link>
+          <Nav.Link href="https://mcgwtxktaxvhnisqaike.supabase.co/auth/v1/authorize?provider=github">Register</Nav.Link>
+          
         </Nav>
 
       </Navbar.Collapse>
