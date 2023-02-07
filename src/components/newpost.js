@@ -13,7 +13,7 @@ const NewPost = () => {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:8000/posts/', {
+      const response = await axios.post('https://ctrl-dev-back-test.up.railway.app/posts/', {
         title,
         body,
         user_id: infoUsuario.id
