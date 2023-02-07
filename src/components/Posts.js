@@ -19,7 +19,7 @@ export class Posts extends Component {
     
     getBlogPosts(){
         axios
-        .get('http://localhost:8000/posts/')
+        .get('https://ctrl-dev-back-test.up.railway.app/posts/')
         .then(res => {
             this.setState({ posts: res.data.result });
         })
