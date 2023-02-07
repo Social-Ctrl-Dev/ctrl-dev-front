@@ -3,14 +3,18 @@ import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Outlet, Link } from 'react-router-dom';
 
 //Import de estilos e imágenes
-import logo from '../../static/img/LogoCDEV2.png';
+import logo from '../../img/LogoCDEV2.png';
 import './NavbarCtrl.css';
+
+//Servicios
+import { UserServices } from '../../services';
 
 //Componente
 const NavbarCtrl: React.FC = () => {
   const [activeLink, setActiveLink] = React.useState('home');
   const [scrolled, setScrolled] = React.useState(false);
 
+  //Función para detectar el scroll
   React.useEffect(() => {
     const handleScroll = () => {
       const offset = window.scrollY;
@@ -28,10 +32,12 @@ const NavbarCtrl: React.FC = () => {
     };
   }, []);
 
+  //Función para actualizar el link activo
   const onUpdateActiveLink = (link: string) => {
     setActiveLink(link);
   };
 
+  //Render
   return (
     <>
       <Navbar expand="md" className={scrolled ? 'scrolled' : ''}>
@@ -39,11 +45,9 @@ const NavbarCtrl: React.FC = () => {
           <Navbar.Brand href="/">
             <img src={logo} alt="CtrlDevLogo" />
           </Navbar.Brand>
-
           <Navbar.Toggle aria-controls="basic-navbar-nav">
             <span className="navbar-toggler-icon"></span>
           </Navbar.Toggle>
-
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
               <Nav.Link
@@ -55,10 +59,8 @@ const NavbarCtrl: React.FC = () => {
                 Home
               </Nav.Link>
               <Nav.Link
-                as={Link}
-                to="/register"
                 className={activeLink === 'register' ? 'active navbar-link' : 'navbar-link'}
-                onClick={() => onUpdateActiveLink('register')}
+                onClick={UserServices.callRegisterUrl}
               >
                 Sign Up
               </Nav.Link>

@@ -1,19 +1,28 @@
 import React from 'react';
-import NavbarCtrl from './components/NavbarCtrl/NavbarCtrl';
+
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 //import BannerCtrl from './components/BannerCtrl';
 //import ThemeProvider from 'react-bootstrap/ThemeProvider';
 import './App.css';
 
 //Importar componentes de páginas principales
-import { Landing, Login, Register, Account } from './pages';
+import { Landing, Login, Account } from './pages';
+
+//Importar componentes Secundarios
+import NavbarCtrl from './components/NavbarCtrl/NavbarCtrl';
+import FooterC from './components/Footer/FooterC';
 //Importar componentes de páginas de error
 import ErrorPage from './pages/ErrorPages/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <NavbarCtrl />,
+    element: (
+      <>
+        <NavbarCtrl />
+        <FooterC />
+      </>
+    ),
     errorElement: (
       <>
         <ErrorPage />
@@ -24,10 +33,6 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Landing />,
-      },
-      {
-        path: 'register',
-        element: <Register />,
       },
       {
         path: 'login',
