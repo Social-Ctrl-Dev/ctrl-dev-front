@@ -40,7 +40,7 @@ export class Posts extends Component {
                 {this.state.posts.map(item =>(
                 
                     <Card key={item.id} bg="secondary" style={{ width: '18rem' }}>   
-                        <Card.Img variant="top" src="https://picsum.photos/200" />
+                        <Card.Img variant="top" src={item.user.avatar} />
                         <Card.Title>{item.title}</Card.Title>
                         <Card.Text>{item.body.slice(0,70)}...</Card.Text>
 
@@ -58,3 +58,29 @@ export class Posts extends Component {
         )
     }
 }
+
+
+
+/*
+return(
+    <Row xs={1} md={2} className="g-4">
+        {this.state.posts.map(item =>(
+        
+            <Card key={item.id} bg="secondary" style={{ width: '18rem' }}>   
+                <Card.Img variant="top" src={item.user.avatar} />
+                <Card.Title>{item.title}</Card.Title>
+                <Card.Text>{item.body.slice(0,70)}...</Card.Text>
+
+                
+                    <Button variant="success" 
+                            href={'post/' + item.id}  
+                    >
+                            Post
+                    </Button>
+            
+                <Card.Footer >{item.user.name}</Card.Footer>
+            </Card>
+        ))}
+    </Row>
+)
+*/
